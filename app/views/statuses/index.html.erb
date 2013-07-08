@@ -1,18 +1,18 @@
 <div class="page-header">
-<h1>Todas las giladas</h1>
+<h1>Página de notas locas</h1>
 </div>
 
-<%= link_to "Escribite uno", new_status_path, class: "btn btn-success" %>
+<%= link_to "Escribite una", new_status_path, class: "btn btn-success" %>
 
 <% @statuses.each do |status| %>
 <div class="status">
- <strong><%= status.name %></strong>
+ <strong><%= status.user.full_name %></strong>
  <p><%= status.content %></p>
  <div class="meta">
     <%= link_to "hace " + time_ago_in_words(status.created_at), status %> |
     <%= link_to "Mostrar", status %> |
     <span class="admin">
-      <%= link_to "Editar", edit_status_path(status) %> | <%= link_to "Borrar", status, method: :delete, data: { confirm: "Segura de que lo queri borrar?"} %> 
+      <%= link_to "Editar", edit_status_path(status) %> | <%= link_to "Borrar", status, method: :delete, data: { confirm: "Segura de que lo querés borrar?"} %> 
     </span>
   </div>
 </div>
